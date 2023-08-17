@@ -3,8 +3,10 @@ import pickle
 import numpy as np
 import pandas
 import requests
-movies_list = pandas.read_pickle(open('movies_new.pkl','rb'))
-scores=pandas.read_pickle(open('similarity.pkl','rb'))
+# movies_list = pandas.read_pickle(open('movies_new.pkl','rb'))
+movies_list = pickle.load(open('movies_new.pkl','rb'))
+# scores=pandas.read_pickle(open('similarity.pkl','rb'))
+scores=pickle.load(open('similarity.pkl','rb'))
 title = movies_list.original_title.values
 def movie_recommend(title):
     idx=np.where(movies_list['original_title']==title)[0][0]
